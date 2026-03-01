@@ -1,0 +1,6 @@
+[submodule "app/api"]
+	path = app/api
+	url = https://github.com/silas/student-loan-system-backend.git
+[submodule "app/web"]
+	path = app/web
+	url = https://github.com/silas/student-loan-system-frontend.git
