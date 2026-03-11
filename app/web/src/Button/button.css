@@ -1,0 +1,35 @@
+.button {
+  all: unset;
+  align-items: center;
+  background-color: #003465;
+  border-radius: 7.11px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  height: 40px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  width: 250px;
+  cursor: pointer;
+}
+
+.button .sign-in-synthetic {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Bold-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin: 0;
+  position: relative;
+  width: fit-content;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

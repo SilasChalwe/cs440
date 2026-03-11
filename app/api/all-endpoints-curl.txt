@@ -1,0 +1,43 @@
+MANUAL CURL COMMANDS (copy/paste)
+Base URL: http://localhost:8080
+
+LOGIN TESTS
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"admin","password":"admin123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"bank_zanaco","password":"bank123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"bank_fnb","password":"bank123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"bank_absa","password":"bank123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"bank_stanbic","password":"bank123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"bank_natsave","password":"bank123"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"student_22177001","password":"test1234"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"student_22177002","password":"test1234"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"student_22177003","password":"test1234"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"student_22177004","password":"test1234"}'
+curl -s -X POST http://localhost:8080/api/auth/login -H "Content-Type: application/json" -d '{"username":"student_22177005","password":"test1234"}'
+
+PUBLIC ENDPOINTS
+curl -s http://localhost:8080/api/health
+curl -s http://localhost:8080/v3/api-docs
+curl -s -I http://localhost:8080/swagger-ui.html
+
+PROTECTED ENDPOINTS (paste real token in place of <TOKEN>)
+
+ADMIN
+curl -s http://localhost:8080/api/admin/dashboard -H "Authorization: Bearer <TOKEN>"
+curl -s http://localhost:8080/api/admin/access-logs -H "Authorization: Bearer <TOKEN>"
+curl -s http://localhost:8080/api/admin/transactions -H "Authorization: Bearer <TOKEN>"
+curl -s -X POST http://localhost:8080/api/admin/students -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"id":90001,"name":"Manual Student","studentNumber":"221779001","bankId":1}'
+curl -s -X PUT http://localhost:8080/api/admin/students/90001/bank -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"bankId":2}'
+curl -s -X POST http://localhost:8080/api/admin/monthly-allowances/run -H "Authorization: Bearer <TOKEN>"
+
+BANK
+curl -s http://localhost:8080/api/bank/students -H "Authorization: Bearer <TOKEN>"
+curl -s http://localhost:8080/api/bank/students/1 -H "Authorization: Bearer <TOKEN>"
+curl -s -X POST http://localhost:8080/api/bank/students/1/loans -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"amount":1000.00,"note":"manual loan"}'
+curl -s -X POST http://localhost:8080/api/bank/students/1/allowances -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"amount":150.00,"note":"manual allowance"}'
+
+STUDENT
+curl -s http://localhost:8080/api/student/me -H "Authorization: Bearer <TOKEN>"
+curl -s http://localhost:8080/api/student/me/transactions -H "Authorization: Bearer <TOKEN>"
+
+NOTE
+- There is no logout endpoint in this API.

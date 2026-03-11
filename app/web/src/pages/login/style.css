@@ -1,0 +1,548 @@
+.glass-effect-login {
+  align-items: start;
+  background-color: rgba(255, 255, 255, 1.0);
+  display: grid;
+  inset: 0;
+  justify-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+}
+
+.glass-effect-login .div {
+  align-items: flex-start;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(0, 132.6, 255) 0%,
+    rgb(0, 52.49, 100.94) 100%
+  );
+  background-color: rgba(255, 255, 255, 1.0);
+  display: flex;
+  height: 100vh;
+  max-width: 1920px;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.glass-effect-login .group {
+  height: 442px;
+  margin-left: -866px;
+  margin-top: 98.02px;
+  width: 475px;
+}
+
+.glass-effect-login .img {
+  height: 192px;
+  margin-left: 72px;
+  margin-top: -487.22px;
+  width: 192px;
+}
+
+.glass-effect-login .overlap {
+  --login-scale-x: calc((100vw - 64px) / 1366px);
+  --login-scale-y: calc((100vh - 64px) / 768px);
+  --login-scale: min(1, var(--login-scale-x), var(--login-scale-y));
+  border-radius: 24px;
+  height: 768px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(var(--login-scale));
+  transform-origin: center;
+  width: 1366px;
+}
+
+.glass-effect-login .group-2 {
+  height: 165px;
+  left: 200px;
+  position: absolute;
+  top: 96px;
+  width: 483px;
+}
+
+.glass-effect-login .div-2 {
+  align-items: flex-end;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgb(0, 132.6, 255) 0%,
+    rgb(0, 52.49, 100.94) 100%
+  );
+  border-radius: 24px;
+  box-shadow:
+    22px 35px 91px #0000001a, 89px 139px 165px #00000017, 200px 312px 223px #0000000d, 355px 556px 264px #00000003, 555px 868px 288px transparent;
+  display: flex;
+  gap: 3px;
+  height: 768px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 1366px;
+}
+
+.glass-effect-login .overlap-group {
+  height: 768px;
+  position: relative;
+  width: 1157px;
+}
+
+.glass-effect-login .overlap-group-2 {
+  height: 641px;
+  left: 288px;
+  position: absolute;
+  top: 79px;
+  width: 869px;
+}
+
+.glass-effect-login .group-3 {
+  height: 108px;
+  left: 8px;
+  position: absolute;
+  top: 485px;
+  width: 163px;
+}
+
+.glass-effect-login .group-4 {
+  height: 263px;
+  left: 25px;
+  position: absolute;
+  top: 378px;
+  width: 263px;
+}
+
+.glass-effect-login .group-5 {
+  height: 443px;
+  left: 394px;
+  position: absolute;
+  top: 0;
+  width: 475px;
+}
+
+.glass-effect-login .frame {
+  -webkit-backdrop-filter: blur(17.79px) brightness(100%);
+  align-items: center;
+  backdrop-filter: blur(17.79px) brightness(100%);
+  background-color: #5782c147;
+  border: none;
+  border-radius: 28.46px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 40px;
+  left: 190px;
+  overflow: hidden;
+  padding: 40px 80px;
+  position: absolute;
+  top: 26px;
+}
+
+.glass-effect-login .frame::before {
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  background: linear-gradient(
+    to bottom,
+    rgba(88, 130, 193, 0.49),
+    rgba(88, 130, 193, 0.11)
+  );
+  border-radius: 28.46px;
+  content: "";
+  inset: 0;
+  mask-composite: exclude;
+  padding: 2.13px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.glass-effect-login .text-wrapper {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Bold-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -2.13px;
+  position: relative;
+  width: fit-content;
+}
+
+.glass-effect-login .login-logo {
+  height: 64px;
+  width: 64px;
+  object-fit: contain;
+}
+
+.glass-effect-login .frame-2 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.glass-effect-login .text-wrapper-2 {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Bold-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  width: fit-content;
+}
+
+.glass-effect-login .auto-flex-wrapper {
+  height: auto;
+  margin: 0 auto;
+  max-width: 250px;
+  position: relative;
+  width: 100%;
+}
+
+.glass-effect-login .auto-flex {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  min-height: 155px;
+  width: 100%;
+}
+
+.glass-effect-login .frame-3 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.glass-effect-login .text-wrapper-3 {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  width: fit-content;
+}
+
+.glass-effect-login .div-wrapper {
+  align-items: center;
+  background-color: #ffffff;
+  border: 0.71px solid;
+  border-color: #bcbec0;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  height: 40px;
+  overflow: hidden;
+  padding: 8px 12px;
+  position: relative;
+  width: 250px;
+}
+
+.glass-effect-login .text-wrapper-4 {
+  align-items: center;
+  color: #bcbec0;
+  display: flex;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.glass-effect-login .login-input {
+  background: transparent;
+  border: none;
+  color: #0f2b4a;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  outline: none;
+  width: 100%;
+}
+
+.glass-effect-login .login-input::placeholder {
+  color: #bcbec0;
+}
+
+.glass-effect-login .login-input:disabled {
+  opacity: 0.6;
+}
+
+.glass-effect-login .login-alert {
+  border-radius: 8px;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+  padding: 8px 10px;
+  width: 100%;
+}
+
+.glass-effect-login .login-warning {
+  background: rgba(255, 237, 204, 0.85);
+  color: #7a4b00;
+}
+
+.glass-effect-login .login-error {
+  background: rgba(255, 210, 210, 0.9);
+  color: #7a1d1d;
+}
+
+.glass-effect-login .button-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.glass-effect-login .button-link:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.glass-effect-login .frame-4 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.glass-effect-login .text-wrapper-5 {
+  align-items: center;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  height: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 11px;
+}
+
+.glass-effect-login .text-wrapper-6 {
+  align-items: center;
+  align-self: stretch;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+}
+
+.glass-effect-login .form-spacer {
+  height: 6px;
+  width: 100%;
+}
+
+.glass-effect-login .frame-2254 {
+  align-self: stretch !important;
+  flex: 0 0 auto !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+.glass-effect-login .don-t-have-an {
+  align-items: center;
+  align-self: stretch;
+  color: #ffffff;
+  display: flex;
+  font-family: "Gilroy-Regular-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+}
+
+.glass-effect-login .span {
+  color: #ffffff;
+  font-family: "Gilroy-Regular-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.glass-effect-login .text-wrapper-7 {
+  font-family: "Gilroy-Bold-Bold", Helvetica;
+  font-weight: 700;
+}
+
+.glass-effect-login .group-6 {
+  height: 40px;
+  left: 678px;
+  position: absolute;
+  top: 498px;
+  width: 125px;
+}
+
+.glass-effect-login .group-7 {
+  height: 62px;
+  left: 607px;
+  position: absolute;
+  top: 442px;
+  width: 147px;
+}
+
+.glass-effect-login .group-8 {
+  height: 116px;
+  left: 0;
+  position: absolute;
+  top: 130px;
+  width: 195px;
+}
+
+.glass-effect-login .group-9 {
+  height: 89px;
+  left: 364px;
+  position: absolute;
+  top: 0;
+  width: 192px;
+}
+
+.glass-effect-login .group-10 {
+  height: 60px;
+  left: 274px;
+  position: absolute;
+  top: 329px;
+  width: 111px;
+}
+
+.glass-effect-login .group-11 {
+  height: 286px;
+  left: 0;
+  position: absolute;
+  top: 482px;
+  width: 293px;
+}
+
+.glass-effect-login .group-12 {
+  height: 132px;
+  width: 206px;
+}
+
+@media (max-width: 1600px) {
+  .glass-effect-login .div {
+    justify-content: center;
+  }
+
+  .glass-effect-login .overlap {
+    margin-left: 0;
+  }
+
+  .glass-effect-login .group,
+  .glass-effect-login .img {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .glass-effect-login {
+    min-height: 100vh;
+    padding: 24px 16px;
+  }
+
+  .glass-effect-login .div {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+  }
+
+  .glass-effect-login .overlap {
+    left: auto;
+    margin: 0;
+    position: static;
+    top: auto;
+    transform: none;
+    width: min(520px, 100%);
+    height: auto;
+  }
+
+  .glass-effect-login .div-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 24px 16px;
+    justify-content: center;
+  }
+
+  .glass-effect-login .overlap-group,
+  .glass-effect-login .overlap-group-2 {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .glass-effect-login .frame {
+    position: static;
+    width: 100%;
+    padding: 32px 24px;
+  }
+
+  .glass-effect-login .frame-2,
+  .glass-effect-login .auto-flex-wrapper,
+  .glass-effect-login .auto-flex,
+  .glass-effect-login .div-wrapper,
+  .glass-effect-login .text-field {
+    width: 100%;
+  }
+
+  .glass-effect-login .button {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .glass-effect-login .button .sign-in-synthetic {
+    margin: 0;
+  }
+
+  .glass-effect-login .group,
+  .glass-effect-login .img,
+  .glass-effect-login .group-2,
+  .glass-effect-login .group-3,
+  .glass-effect-login .group-4,
+  .glass-effect-login .group-5,
+  .glass-effect-login .group-6,
+  .glass-effect-login .group-7,
+  .glass-effect-login .group-8,
+  .glass-effect-login .group-9,
+  .glass-effect-login .group-10,
+  .glass-effect-login .group-11,
+  .glass-effect-login .group-12 {
+    display: none;
+  }
+}

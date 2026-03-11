@@ -1,0 +1,222 @@
+Student Loan System Backend - All Endpoints
+Base URL: http://localhost:8080
+
+PUBLIC
+1) POST /api/auth/login
+Auth: Public
+Request:
+{
+  "username": "bank_zanaco",
+  "password": "bank123"
+}
+Response 200:
+{
+  "token": "jwt-token"
+}
+
+2) GET /api/health
+Auth: Public
+Response 200:
+{
+  "status": "UP",
+  "service": "student-loan-system-backend"
+}
+
+BANK (ROLE_BANK)
+3) GET /api/bank/students
+Auth: Bearer token (ROLE_BANK)
+Response 200:
+[
+  {
+    "id": 1,
+    "name": "Alice Banda",
+    "studentNumber": "2026001",
+    "bankId": 1
+  }
+]
+
+4) GET /api/bank/students/{studentId}
+Auth: Bearer token (ROLE_BANK)
+Response 200:
+{
+  "id": 1,
+  "name": "Alice Banda",
+  "studentNumber": "2026001",
+  "bankId": 1
+}
+
+5) POST /api/bank/students/{studentId}/loans
+Auth: Bearer token (ROLE_BANK)
+Request:
+{
+  "amount": 1000.00,
+  "note": "semester loan"
+}
+Response 201:
+{
+  "id": 10,
+  "studentId": 1,
+  "amount": 1000.00,
+  "disbursedAt": "2026-02-26T00:00:00",
+  "note": "semester loan"
+}
+
+6) POST /api/bank/students/{studentId}/allowances
+Auth: Bearer token (ROLE_BANK)
+Request:
+{
+  "amount": 150.00,
+  "note": "monthly allowance"
+}
+Response 201:
+{
+  "id": 11,
+  "studentId": 1,
+  "amount": 150.00,
+  "disbursedAt": "2026-02-26T00:00:00",
+  "note": "monthly allowance"
+}
+
+STUDENT (ROLE_STUDENT)
+7) GET /api/student/me
+Auth: Bearer token (ROLE_STUDENT)
+Response 200:
+{
+  "student": { "id": 1, "name": "Alice Banda", "studentNumber": "2026001", "bankId": 1 },
+  "bank": { "id": 1, "code": "ZANACO", "name": "Zanaco Bank" },
+  "loans": [],
+  "allowances": []
+}
+
+8) GET /api/student/me/transactions
+Auth: Bearer token (ROLE_STUDENT)
+Response 200:
+[
+  {
+    "id": 1,
+    "type": "ALLOWANCE_DISBURSEMENT",
+    "studentId": 1,
+    "bankId": 1,
+    "amount": 150.00,
+    "processedBy": "bank_zanaco",
+    "processedAt": "2026-02-26T00:00:00",
+    "note": "monthly allowance"
+  }
+]
+
+ADMIN (ROLE_ADMIN)
+9) GET /api/admin/dashboard
+Auth: Bearer token (ROLE_ADMIN)
+Response 200:
+{
+  "banks": [],
+  "students": [],
+  "loans": [],
+  "allowances": [],
+  "transactions": [],
+  "accessLogs": []
+}
+
+10) GET /api/admin/access-logs
+Auth: Bearer token (ROLE_ADMIN)
+Response 200:
+[
+  {
+    "id": 1,
+    "actor": "bank_zanaco",
+    "role": "BANK",
+    "bankId": 1,
+    "studentId": 2,
+    "action": "READ_STUDENT",
+    "outcome": "DENIED",
+    "reason": "Access blocked by Chinese Wall policy.",
+    "timestamp": "2026-02-26T00:00:00"
+  }
+]
+
+11) GET /api/admin/transactions
+Auth: Bearer token (ROLE_ADMIN)
+Response 200:
+[
+  {
+    "id": 1,
+    "type": "ALLOWANCE_DISBURSEMENT",
+    "studentId": 1,
+    "bankId": 1,
+    "amount": 150.00,
+    "processedBy": "bank_zanaco",
+    "processedAt": "2026-02-26T00:00:00",
+    "note": "monthly allowance"
+  }
+]
+
+12) POST /api/admin/students
+Auth: Bearer token (ROLE_ADMIN)
+Request:
+{
+  "id": 90,
+  "name": "Demo Student",
+  "studentNumber": "S90",
+  "bankId": 1
+}
+Response 201:
+{
+  "id": 90,
+  "name": "Demo Student",
+  "studentNumber": "S90",
+  "bankId": 1
+}
+
+13) PUT /api/admin/students/{studentId}/bank
+Auth: Bearer token (ROLE_ADMIN)
+Request:
+{
+  "bankId": 2
+}
+Response 200:
+{
+  "id": 90,
+  "name": "Demo Student",
+  "studentNumber": "S90",
+  "bankId": 2
+}
+
+14) POST /api/admin/monthly-allowances/run
+Auth: Bearer token (ROLE_ADMIN)
+Request: none
+Response 200:
+{
+  "processedCount": 5,
+  "skippedCount": 2,
+  "note": "Monthly allowance disbursement"
+}
+
+FRAMEWORK / DOCS ROUTES
+15) GET /swagger-ui.html
+Auth: Public
+Purpose: Swagger UI entry point
+
+16) GET /swagger-ui/**
+Auth: Public
+Purpose: Swagger static UI assets
+
+17) GET /v3/api-docs
+Auth: Public
+Purpose: OpenAPI JSON
+
+18) GET /v3/api-docs/**
+Auth: Public
+Purpose: Grouped/aux OpenAPI docs routes
+
+19) GET /error
+Auth: Depends on caller/request context
+Purpose: Spring Boot default error endpoint
+
+STANDARD ERROR RESPONSE (400/401/403/404/500)
+{
+  "timestamp": "2026-02-26T00:00:00",
+  "status": 403,
+  "error": "Forbidden",
+  "message": "Access blocked by Chinese Wall policy.",
+  "path": "/api/bank/students/2"
+}

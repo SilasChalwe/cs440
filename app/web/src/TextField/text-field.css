@@ -1,0 +1,52 @@
+.text-field {
+  align-items: center;
+  background-color: #ffffff;
+  border: 0.71px solid;
+  border-color: #bcbec0;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 8px 12px;
+  position: relative;
+  width: 250px;
+}
+
+.text-field-input {
+  background: transparent;
+  border: none;
+  color: #0f2b4a;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  outline: none;
+  width: 100%;
+}
+
+.text-field-input::placeholder {
+  color: #bcbec0;
+}
+
+.text-field .password-synthetic {
+  align-items: center;
+  color: #bcbec0;
+  display: flex;
+  font-family: "Gilroy-Medium-Medium", Helvetica;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.text-field .clarity-eye-hide {
+  height: 11.38px;
+  margin-left: -1313.38px;
+  margin-top: -320.71px;
+  position: relative;
+  width: 11.38px;
+}
