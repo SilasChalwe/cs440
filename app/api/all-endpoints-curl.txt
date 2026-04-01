@@ -25,8 +25,8 @@ ADMIN
 curl -s http://localhost:8080/api/admin/dashboard -H "Authorization: Bearer <TOKEN>"
 curl -s http://localhost:8080/api/admin/access-logs -H "Authorization: Bearer <TOKEN>"
 curl -s http://localhost:8080/api/admin/transactions -H "Authorization: Bearer <TOKEN>"
-curl -s -X POST http://localhost:8080/api/admin/students -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"id":90001,"name":"Manual Student","studentNumber":"221779001","bankId":1}'
-curl -s -X PUT http://localhost:8080/api/admin/students/90001/bank -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"bankId":2}'
+curl -s -X POST http://localhost:8080/api/admin/students -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"name":"Manual Student","studentNumber":"221779001","bankId":1}'
+curl -s -X PUT http://localhost:8080/api/admin/students/<STUDENT_ID>/bank -H "Authorization: Bearer <TOKEN>" -H "Content-Type: application/json" -d '{"bankId":2}'
 curl -s -X POST http://localhost:8080/api/admin/monthly-allowances/run -H "Authorization: Bearer <TOKEN>"
 
 BANK

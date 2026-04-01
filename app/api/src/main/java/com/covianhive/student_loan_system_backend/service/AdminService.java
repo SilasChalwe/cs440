@@ -99,9 +99,6 @@ public class AdminService {
 
     @Transactional
     public Student createStudent(CreateStudentRequest request) {
-        if (studentRepository.existsById(request.id())) {
-            throw new IllegalArgumentException("Student id already exists.");
-        }
         if (studentRepository.findByStudentNumberIgnoreCase(request.studentNumber()).isPresent()) {
             throw new IllegalArgumentException("Student number already exists.");
         }
@@ -110,14 +107,16 @@ public class AdminService {
         }
 
         StudentEntity saved = studentRepository.save(new StudentEntity(
-                request.id(),
+                null,
                 request.name(),
                 request.studentNumber(),
                 request.bankId(),
                 DEFAULT_ALLOWANCE_AMOUNT,
                 DEFAULT_LOAN_LIMIT,
-                buildBankAccount(request.id())
+                ""
         ));
+        saved.setBankAccount(buildBankAccount(saved.getId()));
+        saved = studentRepository.save(saved);
 
         chineseWallPolicyService.logAdminAccess(
                 saved.getId(),
