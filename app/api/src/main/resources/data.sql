@@ -1,104 +1,88 @@
-INSERT OR IGNORE INTO banks (id, code, name) VALUES (1, 'ZANACO', 'Zanaco Bank');
-INSERT OR IGNORE INTO banks (id, code, name) VALUES (2, 'FNB', 'First National Bank');
-INSERT OR IGNORE INTO banks (id, code, name) VALUES (3, 'ABSA', 'Absa Bank Zambia');
-INSERT OR IGNORE INTO banks (id, code, name) VALUES (4, 'STANBIC', 'Stanbic Bank Zambia');
-INSERT OR IGNORE INTO banks (id, code, name) VALUES (5, 'NATSAVE', 'National Savings and Credit Bank');
+-- BANKS
+INSERT INTO banks (id, code, name) VALUES (1, 'ZANACO', 'Zanaco Bank')
+ON CONFLICT DO NOTHING;
 
-INSERT OR IGNORE INTO loans (id, student_id, amount, disbursed_at, note) VALUES (1, 1, 10000.00, '2026-02-15T09:00:00', 'Initial semester loan');
-INSERT OR IGNORE INTO loans (id, student_id, amount, disbursed_at, note) VALUES (2, 2, 12000.00, '2026-02-15T09:00:00', 'Initial semester loan');
+INSERT INTO banks (id, code, name) VALUES (2, 'FNB', 'First National Bank')
+ON CONFLICT DO NOTHING;
 
-INSERT OR IGNORE INTO allowances (id, student_id, amount, disbursed_at, note) VALUES (1, 1, 1500.00, '2026-02-20T09:00:00', 'Monthly upkeep');
-INSERT OR IGNORE INTO allowances (id, student_id, amount, disbursed_at, note) VALUES (2, 2, 1500.00, '2026-02-20T09:00:00', 'Monthly upkeep');
 
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (1, 'admin', '{noop}admin123', 'UNIVERSITY_ADMIN', NULL, NULL, 1);
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (2, 'bank_zanaco', '{noop}bank123', 'BANK', 1, NULL, 1);
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (3, 'bank_fnb', '{noop}bank123', 'BANK', 2, NULL, 1);
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (4, 'bank_absa', '{noop}bank123', 'BANK', 3, NULL, 1);
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (5, 'bank_stanbic', '{noop}bank123', 'BANK', 4, NULL, 1);
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled)
-VALUES (6, 'bank_natsave', '{noop}bank123', 'BANK', 5, NULL, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (1, 'Alice John', '22177001', 1, 1000.00, 15000.00,'0000000000000001');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (101, '22177001', '{noop}test1234', 'STUDENT', NULL, 1, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (2, 'Silas Chalwe', '22177002', 2, 1000.00, 15000.00,'0000000000000002');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (102, '22177002', '{noop}test1234', 'STUDENT', NULL, 2, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (3, 'Eric Sakala', '22177003', 3, 1000.00, 15000.00,'0000000000000003');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (103, '22177003', '{noop}test1234', 'STUDENT', NULL, 3, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (4, 'Gift Phiri', '22177004', 4, 1000.00, 15000.00,'0000000000000004');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (104, '22177004', '{noop}test1234', 'STUDENT', NULL, 4, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (5, 'Mary Zulu', '22177005', 5, 1000.00, 15000.00,'0000000000000005');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (105, '22177005', '{noop}test1234', 'STUDENT', NULL, 5, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (6, 'Peter Mwansa', '22177006', 1, 1000.00, 15000.00,'0000000000000006');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (106, '22177006', '{noop}test1234', 'STUDENT', NULL, 6, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (7, 'Grace Tembo', '22177007', 2, 1000.00, 15000.00,'0000000000000007');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (107, '22177007', '{noop}test1234', 'STUDENT', NULL, 7, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (8, 'Joseph Banda', '22177008', 3, 1000.00, 15000.00,'0000000000000008');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (108, '22177008', '{noop}test1234', 'STUDENT', NULL, 8, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (9, 'Ruth Chileshe', '22177009', 4, 1000.00, 15000.00,'0000000000000009');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (109, '22177009', '{noop}test1234', 'STUDENT', NULL, 9, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (10, 'David Mumba', '22177010', 5, 1000.00, 15000.00,'0000000000000010');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (110, '22177010', '{noop}test1234', 'STUDENT', NULL, 10, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (11, 'Esther Mulenga', '22177011', 1, 1000.00, 15000.00,'0000000000000011');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (111, '22177011', '{noop}test1234', 'STUDENT', NULL, 11, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (12, 'Kelvin Nkandu', '22177012', 2, 1000.00, 15000.00,'0000000000000012');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (112, '22177012', '{noop}test1234', 'STUDENT', NULL, 12, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (13, 'Patricia Lungu', '22177013', 3, 1000.00, 15000.00,'0000000000000013');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (113, '22177013', '{noop}test1234', 'STUDENT', NULL, 13, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (14, 'Brian Kapopo', '22177014', 4, 1000.00, 15000.00,'0000000000000014');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (114, '22177014', '{noop}test1234', 'STUDENT', NULL, 14, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (15, 'Chipo Mwila', '22177015', 5, 1000.00, 15000.00,'0000000000000015');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (115, '22177015', '{noop}test1234', 'STUDENT', NULL, 15, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (16, 'Felix Musonda', '22177016', 1, 1000.00, 15000.00,'0000000000000016');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (116, '22177016', '{noop}test1234', 'STUDENT', NULL, 16, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (17, 'Linda Chanda', '22177017', 2, 1000.00, 15000.00,'0000000000000017');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (117, '22177017', '{noop}test1234', 'STUDENT', NULL, 17, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (18, 'Andrew Kalaba', '22177018', 3, 1000.00, 15000.00,'0000000000000018');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (118, '22177018', '{noop}test1234', 'STUDENT', NULL, 18, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (19, 'Natasha Sinjora', '22177019', 4, 1000.00, 15000.00,'0000000000000019');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (119, '22177019', '{noop}test1234', 'STUDENT', NULL, 19, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (20, 'Samuel Mbewe', '22177020', 5, 1000.00, 15000.00,'0000000000000020');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (120, '22177020', '{noop}test1234', 'STUDENT', NULL, 20, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (21, 'Lydia Kunda', '22177021', 1, 1000.00, 15000.00,'0000000000000021');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (121, '22177021', '{noop}test1234', 'STUDENT', NULL, 21, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (22, 'George Ngosa', '22177022', 2, 1000.00, 15000.00,'0000000000000022');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (122, '22177022', '{noop}test1234', 'STUDENT', NULL, 22, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (23, 'Naomi Daka', '22177023', 3, 1000.00, 15000.00,'0000000000000023');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (123, '22177023', '{noop}test1234', 'STUDENT', NULL, 23, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (24, 'Frank Sitali', '22177024', 4, 1000.00, 15000.00,'0000000000000024');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (124, '22177024', '{noop}test1234', 'STUDENT', NULL, 24, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (25, 'Sharon Kabwe', '22177025', 5, 1000.00, 15000.00,'0000000000000025');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (125, '22177025', '{noop}test1234', 'STUDENT', NULL, 25, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (26, 'Isaac Zimba', '22177026', 1, 1000.00, 15000.00,'0000000000000026');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (126, '22177026', '{noop}test1234', 'STUDENT', NULL, 26, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (27, 'Brenda Lamba', '22177027', 2, 1000.00, 15000.00,'0000000000000027');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (127, '22177027', '{noop}test1234', 'STUDENT', NULL, 27, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (28, 'Patrick Kasonde', '22177028', 3, 1000.00, 15000.00,'0000000000000028');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (128, '22177028', '{noop}test1234', 'STUDENT', NULL, 28, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (29, 'Theresa Malama', '22177029', 4, 1000.00, 15000.00,'0000000000000029');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (129, '22177029', '{noop}test1234', 'STUDENT', NULL, 29, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (30, 'Martin Sinyangwe', '22177030', 5, 1000.00, 15000.00,'0000000000000030');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (130, '22177030', '{noop}test1234', 'STUDENT', NULL, 30, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (31, 'Monica Chilemba', '22177031', 1, 1000.00, 15000.00,'0000000000000031');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (131, '22177031', '{noop}test1234', 'STUDENT', NULL, 31, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (32, 'James Mulilo', '22177032', 2, 1000.00, 15000.00,'0000000000000032');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (132, '22177032', '{noop}test1234', 'STUDENT', NULL, 32, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (33, 'Agnes Chibwe', '22177033', 3, 1000.00, 15000.00,'0000000000000033');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (133, '22177033', '{noop}test1234', 'STUDENT', NULL, 33, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (34, 'Kelvin Kasongo', '22177034', 4, 1000.00, 15000.00,'0000000000000034');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (134, '22177034', '{noop}test1234', 'STUDENT', NULL, 34, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (35, 'Prisca Mbozi', '22177035', 5, 1000.00, 15000.00,'0000000000000035');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (135, '22177035', '{noop}test1234', 'STUDENT', NULL, 35, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (36, 'Alfred Chirwa', '22177036', 1, 1000.00, 15000.00,'0000000000000036');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (136, '22177036', '{noop}test1234', 'STUDENT', NULL, 36, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (37, 'Rose Lukwesa', '22177037', 2, 1000.00, 15000.00,'0000000000000037');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (137, '22177037', '{noop}test1234', 'STUDENT', NULL, 37, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (38, 'Victor Simukoko', '22177038', 3, 1000.00, 15000.00,'0000000000000038');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (138, '22177038', '{noop}test1234', 'STUDENT', NULL, 38, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (39, 'Mercy Phiri', '22177039', 4, 1000.00, 15000.00,'0000000000000039');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (139, '22177039', '{noop}test1234', 'STUDENT', NULL, 39, 1);
-INSERT OR IGNORE INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account) VALUES (40, 'Collins Chilu', '22177040', 5, 1000.00, 15000.00,'0000000000000040');
-INSERT OR IGNORE INTO app_users (id, username, password, role, bank_id, student_id, enabled) VALUES (140, '22177040', '{noop}test1234', 'STUDENT', NULL, 40, 1);
+-- ADMIN USER
+INSERT INTO app_users (id, username, password, role, bank_id, student_id, enabled)
+VALUES (1, 'admin', '{noop}admin123', 'UNIVERSITY_ADMIN', NULL, NULL, TRUE)
+ON CONFLICT DO NOTHING;
+
+
+-- BANK USERS
+INSERT INTO app_users (id, username, password, role, bank_id, student_id, enabled)
+VALUES (2, 'bank_zanaco', '{noop}bank123', 'BANK', 1, NULL, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users (id, username, password, role, bank_id, student_id, enabled)
+VALUES (3, 'bank_fnb', '{noop}bank123', 'BANK', 2, NULL, TRUE)
+ON CONFLICT DO NOTHING;
+
+
+-- STUDENTS
+INSERT INTO students (id, name, student_number, bank_id, allowance_amount, loan_limit, bank_account)
+VALUES (1, 'Alice John', '22177001', 1, 1000.00, 15000.00, '0000000000000001')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (2, 'Silas Chalwe', '22177002', 2, 1000.00, 15000.00, '0000000000000002')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (3, 'Eric Sakala', '22177003', 1, 1000.00, 15000.00, '0000000000000003')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (4, 'Gift Phiri', '22177004', 2, 1000.00, 15000.00, '0000000000000004')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (5, 'Mary Zulu', '22177005', 1, 1000.00, 15000.00, '0000000000000005')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (6, 'Peter Mwansa', '22177006', 2, 1000.00, 15000.00, '0000000000000006')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (7, 'Grace Tembo', '22177007', 1, 1000.00, 15000.00, '0000000000000007')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (8, 'Joseph Banda', '22177008', 2, 1000.00, 15000.00, '0000000000000008')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (9, 'Ruth Chileshe', '22177009', 1, 1000.00, 15000.00, '0000000000000009')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO students VALUES (10, 'David Mumba', '22177010', 2, 1000.00, 15000.00, '0000000000000010')
+ON CONFLICT DO NOTHING;
+
+
+-- STUDENT USERS
+INSERT INTO app_users (id, username, password, role, bank_id, student_id, enabled)
+VALUES (101, '22177001', '{noop}test1234', 'STUDENT', NULL, 1, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (102, '22177002', '{noop}test1234', 'STUDENT', NULL, 2, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (103, '22177003', '{noop}test1234', 'STUDENT', NULL, 3, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (104, '22177004', '{noop}test1234', 'STUDENT', NULL, 4, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (105, '22177005', '{noop}test1234', 'STUDENT', NULL, 5, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (106, '22177006', '{noop}test1234', 'STUDENT', NULL, 6, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (107, '22177007', '{noop}test1234', 'STUDENT', NULL, 7, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (108, '22177008', '{noop}test1234', 'STUDENT', NULL, 8, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (109, '22177009', '{noop}test1234', 'STUDENT', NULL, 9, TRUE)
+ON CONFLICT DO NOTHING;
+
+INSERT INTO app_users VALUES (110, '22177010', '{noop}test1234', 'STUDENT', NULL, 10, TRUE)
+ON CONFLICT DO NOTHING;
