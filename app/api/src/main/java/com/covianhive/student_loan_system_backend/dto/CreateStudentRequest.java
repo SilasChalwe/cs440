@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record CreateStudentRequest(
-        @NotNull Long id,
         @NotBlank @Size(max = 120) @Pattern(regexp = "^[^<>]*$", message = "name must not contain angle brackets") String name,
         @NotBlank @Pattern(regexp = "^\\d{8,12}$", message = "studentNumber must be numeric with 8 to 12 digits") String studentNumber,
         @NotNull Long bankId
