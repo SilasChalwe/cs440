@@ -31,16 +31,14 @@ public class DataInitializer {
             BankEntity fnb;
             if (bankRepository.count() == 0) {
                 zanaco = new BankEntity();
-                zanaco.setId(1L); // manually assigned
                 zanaco.setCode("ZANACO");
                 zanaco.setName("Zanaco");
-                bankRepository.save(zanaco);
+                zanaco = bankRepository.save(zanaco);
 
                 fnb = new BankEntity();
-                fnb.setId(2L); // manually assigned
                 fnb.setCode("FNB");
                 fnb.setName("FNB");
-                bankRepository.save(fnb);
+                fnb = bankRepository.save(fnb);
             } else {
                 zanaco = bankRepository.findByCodeIgnoreCase("ZANACO").orElseThrow();
                 fnb = bankRepository.findByCodeIgnoreCase("FNB").orElseThrow();
@@ -81,11 +79,9 @@ public class DataInitializer {
                         Map.of("name", "David Mumba", "num", "22177010", "bank", fnb)
                 );
 
-                long studentIdCounter = 1L; // manually generate IDs
                 for (Map<String, Object> data : studentData) {
                     // Create Student
                     StudentEntity student = new StudentEntity();
-                    student.setId(studentIdCounter++); // assign manual ID
                     student.setName((String) data.get("name"));
                     student.setStudentNumber((String) data.get("num"));
                     student.setAllowanceAmount(BigDecimal.valueOf(1000.00));
